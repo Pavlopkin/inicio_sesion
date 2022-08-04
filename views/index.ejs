@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <script src="socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+    <title>sockets</title>
+<body>
+    <%- include('./partials/header') %>
+    <h1>hola <%= user.username %></h1>
+    <a href="/logout">cerrar sesión</a>
+    <div class="contenido">
+        <div id="saludo"></div>
+        <form id="formProd" onsubmit="return addMessage(this)">
+            <input type="text" id="title" placeholder="Ingrese el nombre del producto"><br>
+            <input type="number" id="price" value="1" placeholder="Ingrese el monto"><br>
+            <input type="text" id="thumbnail" placeholder="ingrese link a imagen"><br>
+            <input type="submit" id="submit"value="Enviar">
+        </form>
+        <table id="messages"></table>
+        <div class="cajaChat">
+            <div id="chats"></div>
+            <form id="formChat" onsubmit="return addChat(this)">
+                <input type="email" id="author" placeholder="Ingrese el usuario">
+                <input type="text" onclick='this.value=""' id="text" placeholder="ingrese el comentario">
+                <input type="submit" id="submit"value="Enviar">
+            </form>
+        </div>
+    </div>
+    <%- include('./partials/footer') %>
+</body>
+</html>
